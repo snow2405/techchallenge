@@ -1,3 +1,4 @@
+import numpy as np
 import streamlit as st
 import pandas as pd
 
@@ -12,126 +13,435 @@ from functionforDownloadButtons import download_button
 
 ###################################
 
+from streamlit_echarts import JsCode
+from streamlit_echarts import st_echarts
 
-def _max_width_():
-    max_width_str = f"max-width: 1800px;"
-    st.markdown(
-        f"""
-    <style>
-    .reportview-container .main .block-container{{
-        {max_width_str}
-    }}
-    </style>    
-    """,
-        unsafe_allow_html=True,
-    )
 
-st.set_page_config(page_icon="✂️", page_title="CSV Wrangler modified by Lion")
 
-# st.image("https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/285/balloon_1f388.png", width=100)
+st.set_page_config(page_icon="🤝", page_title="Include.us")
+
+#st.markdown("<h1 style='text-align: center; size:74; color: red;'>Some title</h1>", unsafe_allow_html=True)
+
 st.image(
-    "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/285/scissors_2702-fe0f.png",
-    width=100,
+    "https://i.ibb.co/q0mGSwk/logo-include.png",
+    width=200,
 )
 
-st.title("CSV Wrangler")
 
-# st.caption(
-#     "PRD : TBC | Streamlit Ag-Grid from Pablo Fonseca: https://pypi.org/project/streamlit-aggrid/"
-# )
+col1, col2, col3, col4 = st.columns(4)
 
+with col1:
+ st.title("Include.us")
 
-# ModelType = st.radio(
-#     "Choose your model",
-#     ["Flair", "DistilBERT (Default)"],
-#     help="At present, you can choose between 2 models (Flair or DistilBERT) to embed your text. More to come!",
-# )
+with col4:
+  st.image(
+      "https://i.ibb.co/NYTfP1d/Screenshot-2022-10-11-004740.png",
+      width=100,
+  )
 
-# with st.expander("ToDo's", expanded=False):
-#     st.markdown(
-#         """
-# -   Add pandas.json_normalize() - https://streamlit.slack.com/archives/D02CQ5Z5GHG/p1633102204005500
-# -   **Remove 200 MB limit and test with larger CSVs**. Currently, the content is embedded in base64 format, so we may end up with a large HTML file for the browser to render
-# -   **Add an encoding selector** (to cater for a wider array of encoding types)
-# -   **Expand accepted file types** (currently only .csv can be imported. Could expand to .xlsx, .txt & more)
-# -   Add the ability to convert to pivot → filter → export wrangled output (Pablo is due to change AgGrid to allow export of pivoted/grouped data)
-# 	    """
-#     )
-# 
-#     st.text("")
-
-
-c29, c30, c31 = st.columns([1, 6, 1])
-
-with c30:
-
-    uploaded_file = st.file_uploader(
-        "",
-        key="1",
-        help="To activate 'wide mode', go to the hamburger menu > Settings > turn on 'wide mode'",
-    )
-
-    if uploaded_file is not None:
-        file_container = st.expander("Check your uploaded .csv")
-        shows = pd.read_csv(uploaded_file)
-        uploaded_file.seek(0)
-        file_container.write(shows)
-
-    else:
-        st.info(
-            f"""
-                👆 Upload a .csv file first. Sample to try: [biostats.csv](https://people.sc.fsu.edu/~jburkardt/data/csv/biostats.csv)
-                """
-        )
-
-        st.stop()
-
-from st_aggrid import GridUpdateMode, DataReturnMode
-
-gb = GridOptionsBuilder.from_dataframe(shows)
-# enables pivoting on all columns, however i'd need to change ag grid to allow export of pivoted/grouped data, however it select/filters groups
-gb.configure_default_column(enablePivot=True, enableValue=True, enableRowGroup=True)
-gb.configure_selection(selection_mode="multiple", use_checkbox=True)
-gb.configure_side_bar()  # side_bar is clearly a typo :) should by sidebar
-gridOptions = gb.build()
-
-st.success(
-    f"""
-        💡 Tip! Hold the shift key when selecting rows to select multiple rows at once!
-        """
-)
-
-response = AgGrid(
-    shows,
-    gridOptions=gridOptions,
-    enable_enterprise_modules=True,
-    update_mode=GridUpdateMode.MODEL_CHANGED,
-    data_return_mode=DataReturnMode.FILTERED_AND_SORTED,
-    fit_columns_on_grid_load=False,
-)
-
-df = pd.DataFrame(response["selected_rows"])
-
-st.subheader("Filtered data will appear below 👇 ")
-st.text("")
-
-st.table(df)
+#st.text ("Your current inclusion score is 83, up 4% from last week!")
+st.markdown("<p style='text-align: left; '>Your current inclusion score is 83, up 4% from last week!</p>", unsafe_allow_html=True)
 
 st.text("")
+st.text("")
 
-c29, c30, c31 = st.columns([1, 1, 2])
+baroptions = {
+   
+  "tooltip": {
+    "trigger": "axis",
+    "axisPointer": {
+      "type": "shadow"
+    }
+  },
+  "xAxis": {
+    "type": "category",
+    "data": [
+      
+        "06.10.2022",
+        "07.10.2022",
+        "08.10.2022",
+        "09.10.2022",
+        "Monday",
+        "Tuesday"
+    ]
+  },
+  "yAxis": {
+    "type": "value"
+  },
+  "series": [
+    {
+      "data": [
+        {
+          "value": 91,
+          "itemStyle": {
+            "color": '#0000ff'
+          }
+        },
+        {
+          "value": 79,
+          "itemStyle": {
+            "color": '#0044ff'
+          }
+        },
+        {
+          "value": 67,
+          "itemStyle": {
+            "color": '#0066ff'
+          }
+        },
+        {
+          "value": 92,
+          "itemStyle": {
+            "color": '#3388ff'
+          }
+        },
+        {
+         "value": 86,
+          "itemStyle": {
+            "color": '#55aaff'
+          }
+        },
+        {
+          "value": 97,
+          "itemStyle": {
+            "color": '#77ccff'
+          }
+        }
+      ],
 
-with c29:
+      "type": "bar",
+      
+    }
+  ]
+}
 
-    CSVButton = download_button(
-        df,
-        "File.csv",
-        "Download to CSV",
-    )
+flowinglineoptions={
+  "color": [
+    "#0066ff",
+    "#00DDFF",
+    "#37A2FF",
+    "#FF0087",
+    "#FFBF00"
+  ],
+  "tooltip": {
+    "trigger": "axis",
+    "axisPointer": {
+      "type": "cross",
+      "label": {
+        "backgroundColor": "#6a7985"
+      }
+    }
+  },
+  "legend": {
+    "data": [
+      "Male",
+      "Female",
+      "Diverse"
+    ]
+  },
+  "toolbox": {
+    "feature": {
+      "saveAsImage": {}
+    }
+  },
+  "grid": {
+    "left": "3%",
+    "right": "4%",
+    "bottom": "3%",
+    "containLabel": True
+  },
+  "xAxis": [
+    {
+      "type": "category",
+      "boundaryGap": False,
+      "data": [
+        
+  
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Okt"
 
-with c30:
-    CSVButton = download_button(
-        df,
-        "File.csv",
-        "Download to TXT",
-    )
+      ]
+    }
+  ],
+  "yAxis": [
+    {
+      "type": "value"
+    }
+  ],
+  "series": [
+    {
+      "name": "Male",
+      "type": "line",
+      "stack": "Total",
+      "smooth": True,
+      "lineStyle": {
+        "width": 0
+      },
+      "showSymbol": False,
+      "areaStyle": {
+        "opacity": 0.8
+      },
+      "emphasis": {
+        "focus": "series"
+      },
+      "data": [
+        2186,
+       
+        1433,
+         1738,
+        1160,
+        
+        1302,
+        1763
+      ]
+    },
+    {
+      "name": "Female",
+      "type": "line",
+      "stack": "Total",
+      "smooth": True,
+      "lineStyle": {
+        "width": 0
+      },
+      "showSymbol": False,
+      "areaStyle": {
+        "opacity": 0.8
+      },
+      "emphasis": {
+        "focus": "series"
+      },
+      "data": [
+        658,
+        512,
+        826,
+        1280,
+        1537,
+        2359
+      ]
+    },
+    {
+      "name": "Diverse",
+      "type": "line",
+      "stack": "Total",
+      "smooth": True,
+      "lineStyle": {
+        "width": 0
+      },
+      "showSymbol": False,
+      "areaStyle": {
+        "opacity": 0.8
+      },
+      "emphasis": {
+        "focus": "series"
+      },
+      "data": [
+        129,
+        
+        215,
+        305,
+        331,
+        589,
+        842
+        
+      ]
+    }
+  ]
+}
+
+pieoptionsA={
+  "title": {
+    "text": "A",
+    "subtext": "Fake Data",
+    "left": "center"
+  },
+  "tooltip": {
+    "trigger": "item"
+  },
+  "legend": {
+    "orient": "vertical",
+    "left": "left"
+  },
+  "series": [
+    {
+      "name": "Access From",
+      "type": "pie",
+      "radius": "50%",
+      "data": [
+        {
+          "value": 1048,
+          "name": "Search Engine"
+        },
+        {
+          "value": 735,
+          "name": "Direct"
+        },
+        {
+          "value": 580,
+          "name": "Email"
+        },
+        {
+          "value": 484,
+          "name": "Union Ads"
+        },
+        {
+          "value": 300,
+          "name": "Video Ads"
+        }
+      ],
+      "emphasis": {
+        "itemStyle": {
+          "shadowBlur": 10,
+          "shadowOffsetX": 0,
+          "shadowColor": "rgba(0, 0, 0, 0.5)"
+        }
+      }
+    }
+  ]
+}
+
+pieoptionsB={
+  "title": {
+    "text": "B",
+    "subtext": "Fake Data",
+    "left": "center"
+  },
+  "tooltip": {
+    "trigger": "item"
+  },
+  "legend": {
+    "orient": "vertical",
+    "left": "left"
+  },
+  "series": [
+    {
+      "name": "Access From",
+      "type": "pie",
+      "radius": "50%",
+      "data": [
+        {
+          "value": 1048,
+          "name": "Search Engine"
+        },
+        {
+          "value": 735,
+          "name": "Direct"
+        },
+        {
+          "value": 580,
+          "name": "Email"
+        },
+        {
+          "value": 484,
+          "name": "Union Ads"
+        },
+        {
+          "value": 300,
+          "name": "Video Ads"
+        }
+      ],
+      "emphasis": {
+        "itemStyle": {
+          "shadowBlur": 10,
+          "shadowOffsetX": 0,
+          "shadowColor": "rgba(0, 0, 0, 0.5)"
+        }
+      }
+    }
+  ]
+}
+
+pieoptionsC={
+  "title": {
+    "text": "Referer of a Website",
+    "subtext": "Fake Data",
+    "left": "center"
+  },
+  "tooltip": {
+    "trigger": "item"
+  },
+  "legend": {
+    "orient": "vertical",
+    "left": "left"
+  },
+  "series": [
+    {
+      "name": "Access From",
+      "type": "pie",
+      "radius": "50%",
+      "data": [
+        {
+          "value": 1048,
+          "name": "Search Engine"
+        },
+        {
+          "value": 735,
+          "name": "Direct"
+        },
+        {
+          "value": 580,
+          "name": "Email"
+        },
+        {
+          "value": 484,
+          "name": "Union Ads"
+        },
+        {
+          "value": 300,
+          "name": "Video Ads"
+        }
+      ],
+      "emphasis": {
+        "itemStyle": {
+          "shadowBlur": 10,
+          "shadowOffsetX": 0,
+          "shadowColor": "rgba(0, 0, 0, 0.5)"
+        }
+      }
+    }
+  ]
+}
+
+####################################
+##MAIN
+####################################
+
+st.subheader('Divergent from Average Inclusion')
+chart_data = pd.DataFrame(
+    np.random.randn(50, 3),
+    columns=["Male", "Female", "Diverse"])
+
+st.bar_chart(chart_data)
+
+st.text("")
+st.text("")
+
+st.subheader('Diversity score over the last days')
+st_echarts(baroptions)
+
+st.text("")
+st.text("")
+
+st.subheader('Inclusion minutes over the last 6 months')
+st_echarts(flowinglineoptions)
+
+st.text("")
+st.text("")
+
+colA, colB, colC = st.columns(3)
+
+st_echarts(pieoptionsA)
+st_echarts(pieoptionsB)
+st_echarts(pieoptionsC)
+
+"""
+with colA:
+  st_echarts(pieoptionsA)
+with colB:
+  st_echarts(pieoptionsB)
+with colC:
+  st_echarts(pieoptionsC)
+"""
