@@ -18,8 +18,27 @@ from streamlit_echarts import JsCode
 from streamlit_echarts import st_echarts
 
 
+####################
+#VAIRABLES
 
-st.set_page_config(page_icon="🤝", page_title="Include.us")
+color1 = "#52307c"
+color2 = "#663a82"
+color3 = "#7c5295"
+color4 = "#b491c8"
+color5 = "#bca0dc"
+
+group1 = "Male"
+group2 = "Female"
+group3 = "Diverse"
+
+feedback1 = "Highly Satisified"
+feedback2 = "Satisified"
+feedback3 = "Okay"
+feedback4 = "Not Satisified"
+feedback5 = "Highly Dissatisfied"
+
+
+st.set_page_config(page_icon="🤝", page_title="include.us")
 
 #st.markdown("<h1 style='text-align: center; size:74; color: red;'>Some title</h1>", unsafe_allow_html=True)
 
@@ -29,19 +48,10 @@ st.image(
 )
 
 
-col1, col2, col3, col4 = st.columns(4)
 
-with col1:
- st.title("Include.us")
+st.title("Include.us")
 
-with col4:
-  st.image(
-      "https://i.ibb.co/NYTfP1d/Screenshot-2022-10-11-004740.png",
-      width=100,
-  )
 
-#st.text ("Your current inclusion score is 83, up 4% from last week!")
-st.markdown("<p style='text-align: left; '>Your current inclusion score is 83, up 4% from last week!</p>", unsafe_allow_html=True)
 
 st.text("")
 st.text("")
@@ -58,12 +68,9 @@ baroptions = {
     "type": "category",
     "data": [
       
-        "06.10.2022",
-        "07.10.2022",
-        "08.10.2022",
-        "09.10.2022",
-        "Monday",
-        "Tuesday"
+        group1,
+        group2,
+        group3
     ]
   },
   "yAxis": {
@@ -75,37 +82,19 @@ baroptions = {
         {
           "value": 91,
           "itemStyle": {
-            "color": '#0000ff'
+            "color": '#52307c'
           }
         },
         {
-          "value": 79,
+          "value": -79,
           "itemStyle": {
-            "color": '#0044ff'
+            "color": '#7c5295'
           }
         },
         {
           "value": 67,
           "itemStyle": {
-            "color": '#0066ff'
-          }
-        },
-        {
-          "value": 92,
-          "itemStyle": {
-            "color": '#3388ff'
-          }
-        },
-        {
-         "value": 86,
-          "itemStyle": {
-            "color": '#55aaff'
-          }
-        },
-        {
-          "value": 97,
-          "itemStyle": {
-            "color": '#77ccff'
+            "color": '#bca0dc'
           }
         }
       ],
@@ -118,11 +107,9 @@ baroptions = {
 
 flowinglineoptions={
   "color": [
-    "#0066ff",
-    "#00DDFF",
-    "#37A2FF",
-    "#FF0087",
-    "#FFBF00"
+    "#52307c",
+    "#7c5295",
+    "#bca0dc"
   ],
   "tooltip": {
     "trigger": "axis",
@@ -135,9 +122,9 @@ flowinglineoptions={
   },
   "legend": {
     "data": [
-      "Male",
-      "Female",
-      "Diverse"
+      group1,
+      group2,
+      group3
     ]
   },
   "toolbox": {
@@ -175,7 +162,7 @@ flowinglineoptions={
   ],
   "series": [
     {
-      "name": "Male",
+      "name": group1,
       "type": "line",
       "stack": "Total",
       "smooth": True,
@@ -201,7 +188,7 @@ flowinglineoptions={
       ]
     },
     {
-      "name": "Female",
+      "name": group2,
       "type": "line",
       "stack": "Total",
       "smooth": True,
@@ -225,7 +212,7 @@ flowinglineoptions={
       ]
     },
     {
-      "name": "Diverse",
+      "name": group3,
       "type": "line",
       "stack": "Total",
       "smooth": True,
@@ -254,18 +241,22 @@ flowinglineoptions={
 }
 
 pieoptionsA={
+  "color": [
+    color1,
+    color2,
+    color3,
+    color4,
+    color5
+  ],
   "title": {
-    "text": "A",
-    "subtext": "Fake Data",
+    "text": "Feedback",
+    "subtext": "Bottom 20% Engagement",
     "left": "center"
   },
   "tooltip": {
     "trigger": "item"
   },
-  "legend": {
-    "orient": "vertical",
-    "left": "left"
-  },
+  
   "series": [
     {
       "name": "Access From",
@@ -274,23 +265,23 @@ pieoptionsA={
       "data": [
         {
           "value": 1048,
-          "name": "Search Engine"
+          "name": feedback1
         },
         {
           "value": 735,
-          "name": "Direct"
+          "name": feedback2 
         },
         {
           "value": 580,
-          "name": "Email"
+          "name": feedback3
         },
         {
           "value": 484,
-          "name": "Union Ads"
+          "name": feedback4
         },
         {
           "value": 300,
-          "name": "Video Ads"
+          "name": feedback5
         }
       ],
       "emphasis": {
@@ -305,18 +296,22 @@ pieoptionsA={
 }
 
 pieoptionsB={
+    "color": [
+    color1,
+    color2,
+    color3,
+    color4,
+    color5
+  ],
   "title": {
-    "text": "B",
-    "subtext": "Fake Data",
+    "text": "Feedback",
+    "subtext": "All Groups",
     "left": "center"
   },
   "tooltip": {
     "trigger": "item"
   },
-  "legend": {
-    "orient": "vertical",
-    "left": "left"
-  },
+  
   "series": [
     {
       "name": "Access From",
@@ -324,24 +319,24 @@ pieoptionsB={
       "radius": "50%",
       "data": [
         {
-          "value": 1048,
-          "name": "Search Engine"
+          "value": 1448,
+          "name": feedback1
         },
         {
-          "value": 735,
-          "name": "Direct"
+          "value": 635,
+          "name": feedback2 
         },
         {
-          "value": 580,
-          "name": "Email"
+          "value": 480,
+          "name": feedback3
         },
         {
-          "value": 484,
-          "name": "Union Ads"
+          "value": 384,
+          "name": feedback4
         },
         {
-          "value": 300,
-          "name": "Video Ads"
+          "value": 200,
+          "name": feedback5
         }
       ],
       "emphasis": {
@@ -356,18 +351,22 @@ pieoptionsB={
 }
 
 pieoptionsC={
+  "color": [
+    color1,
+    color2,
+    color3,
+    color4,
+    color5
+  ],
   "title": {
-    "text": "Referer of a Website",
-    "subtext": "Fake Data",
+    "text": "Feedback",
+    "subtext": "Bottom 20% Engagement",
     "left": "center"
   },
   "tooltip": {
     "trigger": "item"
   },
-  "legend": {
-    "orient": "vertical",
-    "left": "left"
-  },
+  
   "series": [
     {
       "name": "Access From",
@@ -375,24 +374,24 @@ pieoptionsC={
       "radius": "50%",
       "data": [
         {
-          "value": 1048,
-          "name": "Search Engine"
+          "value": 248,
+          "name": feedback1
         },
         {
-          "value": 735,
-          "name": "Direct"
+          "value": 435,
+          "name": feedback2 
         },
         {
-          "value": 580,
-          "name": "Email"
+          "value": 680,
+          "name": feedback3
         },
         {
-          "value": 484,
-          "name": "Union Ads"
+          "value": 784,
+          "name": feedback4
         },
         {
-          "value": 300,
-          "name": "Video Ads"
+          "value": 900,
+          "name": feedback5
         }
       ],
       "emphasis": {
@@ -411,50 +410,90 @@ pieoptionsC={
 ####################################
 
 with st.sidebar:
-  with st.echo():
-    st.write("This code will be printed to the sidebar.")
-    st.text("sidebar content")
-  with st.spinner("Loading..."):
-   
-    st.success("Loading Done!")
-    result = st.button("Unlock Full Version")
+  
+    st.subheader("Version Info")
+   # st.text("Hey there, you are currently only using the demo version of Include.us. Contact our sales tean to start being inclusive today!")
+    st.markdown("<p style='text-align: left; '>Hey there, you are currently only using the demo version of Include.us. Contact our sales tean to start being inclusive today!</p>", unsafe_allow_html=True)
+    resultContact = st.button("Contact Us & Go Inclusive!")
+
+    st.subheader("Resources")
+    st.markdown("<p style='text-align: left; '>It's time to Include.us! Find out more with the resources below or contact us directly.</p>", unsafe_allow_html=True)
+    resultSocial = st.button("Find out how we create positive Impact")
+    resultProduct = st.button("Pricing")
+    resultMedia = st.button("Social Media")
+
+
+#st.subheader('Divergent from Average Inclusion')
+#chart_data = pd.DataFrame(
+#    np.random.randn(3, 3),
+#    columns=["Male", "Female", "Diverse"])
+
+#st.bar_chart(chart_data)
+
+c27,c28,c29,c30, c31 = st.columns([1,3, 1, 6,1])
+with c28:
+ 
+  st.subheader('Inclusion Index')
+  st.markdown("<p style='text-align: left; '>Your weekly inclusion index is 83, up 4% from last week!</p>", unsafe_allow_html=True)
+  st.image(
+      "https://i.ibb.co/Xjm04v6/Screenshot-2022-10-11-004740.png",
+      width=300,
+  )
+ # st.markdown("<p style='text-align: left; '>Your current inclusion score is 83, up 4% from last week!</p>", unsafe_allow_html=True)
+
+
+with c30:
+  
+
+
+  st.subheader('Speech Engagement Compared to Average')
+  st_echarts(baroptions)
+
+st.title("")
+
+
+st.subheader('Talking time over the last 6 months [h]')
+c32,c33,c34 = st.columns([1,8,1])
+
+with c33:
+  
+  st_echarts(flowinglineoptions)
+
+  st.text(" ")
+  st.text(" ")
+  st.text(" ")
+  st.text(" ")
+
+st.subheader('Meeting Feedback Grouped by Engagement')
+
+colX, colY, colZ= st.columns(3)
+
+with colX:
+  st_echarts(pieoptionsA)
+with colY:
+  st_echarts(pieoptionsB)
+with colZ:
+  st_echarts(pieoptionsC)
 
 
 
-st.subheader('Divergent from Average Inclusion')
-chart_data = pd.DataFrame(
-    np.random.randn(3, 3),
-    columns=["Male", "Female", "Diverse"])
 
-st.bar_chart(chart_data)
-
-st.text("")
-st.text("")
-
-st.subheader('Diversity score over the last days')
-st_echarts(baroptions)
-
-st.text("")
-st.text("")
-
-st.subheader('Inclusion minutes over the last 6 months')
-st_echarts(flowinglineoptions)
-
-st.text("")
-st.text("")
+resultA = st.button("Contact")
+resultB = st.button("Help")
 
 
+  
+st.text(" ")
+st.text(" ")
+st.text(" ")
+st.text(" ")
 
 
-st_echarts(pieoptionsA)
-st_echarts(pieoptionsB)
-st_echarts(pieoptionsC)
+  
+st.text(" ")
+st.text(" ")
+st.text(" ")
+st.text(" ")
 
-colA, colB, colC = st.columns(3)
 
-with colA:
-  resultA = st.button("Contact Sales Team")
-with colB:
-  resultB = st.button("Help")
-with colC:
-  resultC = st.button("Social Media")
+st.text("© Copyright include.us Inc. 2022, all rights reserved")
