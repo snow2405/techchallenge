@@ -42,6 +42,22 @@ st.set_page_config(page_icon="🤝", page_title="include.us")
 
 #st.markdown("<h1 style='text-align: center; size:74; color: red;'>Some title</h1>", unsafe_allow_html=True)
 
+c20,c21,c22,c23 = st.columns([20,2,1,1])
+
+with c21:
+  st.button("Sign Out")
+with c22:
+  st.image(
+    "https://icones.pro/wp-content/uploads/2021/03/icone-de-configuration-noire.png",
+    width=35,
+)
+with c23:
+  st.image(
+    "https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/11_avatar-512.png",
+    width=35,
+)
+
+
 st.image(
     "https://i.ibb.co/q0mGSwk/logo-include.png",
     width=200,
@@ -49,7 +65,7 @@ st.image(
 
 
 
-st.title("Include.us")
+st.title("Data Analytics")
 
 
 
@@ -80,19 +96,19 @@ baroptions = {
     {
       "data": [
         {
-          "value": 91,
+          "value": 22,
           "itemStyle": {
             "color": '#52307c'
           }
         },
         {
-          "value": -79,
+          "value": -13,
           "itemStyle": {
             "color": '#7c5295'
           }
         },
         {
-          "value": 67,
+          "value": -5,
           "itemStyle": {
             "color": '#bca0dc'
           }
@@ -249,8 +265,8 @@ pieoptionsA={
     color5
   ],
   "title": {
-    "text": "Feedback",
-    "subtext": "Bottom 20% Engagement",
+    "text": "Bottom 20% Engagement",
+   
     "left": "center"
   },
   "tooltip": {
@@ -304,8 +320,8 @@ pieoptionsB={
     color5
   ],
   "title": {
-    "text": "Feedback",
-    "subtext": "All Groups",
+    "text":"All Groups",
+ 
     "left": "center"
   },
   "tooltip": {
@@ -359,8 +375,8 @@ pieoptionsC={
     color5
   ],
   "title": {
-    "text": "Feedback",
-    "subtext": "Bottom 20% Engagement",
+    "text": "Bottom 20% Engagement",
+   
     "left": "center"
   },
   "tooltip": {
@@ -410,19 +426,24 @@ pieoptionsC={
 ####################################
 
 with st.sidebar:
-  
-    st.subheader("Version Info")
+  # ~ Harvard Buisness Review
+    st.title("Include.us")
+    st.subheader("Quote of the Day")
+    st.markdown("<p style='text-align: left; '>'Inclusive companies are 1.7 times more likely to be innovation leaders and inclusive teams make better business decisions twice as fast.'  </p>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: left; '>~ Harvard Buisness Review </p>", unsafe_allow_html=True)
+
    # st.text("Hey there, you are currently only using the demo version of Include.us. Contact our sales tean to start being inclusive today!")
-    st.markdown("<p style='text-align: left; '>Hey there, you are currently only using the demo version of Include.us. Contact our sales tean to start being inclusive today!</p>", unsafe_allow_html=True)
-    resultContact = st.button("Contact Us & Go Inclusive!")
+   # st.markdown("<p style='text-align: left; '>Hey there, you are currently only using the demo version of Include.us. Contact our sales tean to start being inclusive today!</p>", unsafe_allow_html=True)
+   
 
     st.subheader("Resources")
     st.markdown("<p style='text-align: left; '>It's time to Include.us! Find out more with the resources below or contact us directly.</p>", unsafe_allow_html=True)
     resultSocial = st.button("Find out how we create positive Impact")
     resultProduct = st.button("Pricing")
     resultMedia = st.button("Social Media")
+    resultContact = st.button("Upgrade Now & Go Inclusive!")
 
-
+ 
 #st.subheader('Divergent from Average Inclusion')
 #chart_data = pd.DataFrame(
 #    np.random.randn(3, 3),
@@ -446,7 +467,7 @@ with c30:
   
 
 
-  st.subheader('Speech Engagement Compared to Average')
+  st.subheader('Speech Engagement Deviation in %')
   st_echarts(baroptions)
 
 st.title("")
@@ -477,11 +498,6 @@ with colZ:
 
 
 
-
-resultA = st.button("Contact")
-resultB = st.button("Help")
-
-
   
 st.text(" ")
 st.text(" ")
@@ -495,5 +511,6 @@ st.text(" ")
 st.text(" ")
 st.text(" ")
 
+st.text("Demo Version Only")
 
 st.text("© Copyright include.us Inc. 2022, all rights reserved")
