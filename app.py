@@ -1,3 +1,4 @@
+import time
 import numpy as np
 import streamlit as st
 import pandas as pd
@@ -409,9 +410,20 @@ pieoptionsC={
 ##MAIN
 ####################################
 
+with st.sidebar:
+  with st.echo():
+    st.write("This code will be printed to the sidebar.")
+    st.text("sidebar content")
+  with st.spinner("Loading..."):
+   
+    st.success("Loading Done!")
+    result = st.button("Unlock Full Version")
+
+
+
 st.subheader('Divergent from Average Inclusion')
 chart_data = pd.DataFrame(
-    np.random.randn(50, 3),
+    np.random.randn(3, 3),
     columns=["Male", "Female", "Diverse"])
 
 st.bar_chart(chart_data)
@@ -432,17 +444,17 @@ st.text("")
 st.text("")
 
 
-colA, colB, colC = st.columns(3)
+
 
 st_echarts(pieoptionsA)
 st_echarts(pieoptionsB)
 st_echarts(pieoptionsC)
 
-"""
+colA, colB, colC = st.columns(3)
+
 with colA:
-  st_echarts(pieoptionsA)
+  resultA = st.button("Contact Sales Team")
 with colB:
-  st_echarts(pieoptionsB)
+  resultB = st.button("Help")
 with colC:
-  st_echarts(pieoptionsC)
-"""
+  resultC = st.button("Social Media")
