@@ -36,11 +36,6 @@ st.image(
 )
 
 st.title("Create and Review your Feedback Form")
-
-st.image(
-    "https://i.ibb.co/LrcRX5r/Screenshot-2022-10-11-115546.png",
-    width=700,
-)
 st.image(
     "https://i.ibb.co/QMCXXXk/Screenshot-2022-10-11-115236.png",
     width=700,
