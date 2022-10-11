@@ -40,7 +40,7 @@ feedback5 = "Highly Dissatisfied"
 
 st.set_page_config(page_icon="🤝", page_title="include.us")
 
-#st.markdown("<h1 style='text-align: center; size:74; color: red;'>Some title</h1>", unsafe_allow_html=True)
+
 
 c20,c21,c22,c23 = st.columns([20,3,1,1])
 
@@ -426,15 +426,11 @@ pieoptionsC={
 ####################################
 
 with st.sidebar:
-  # ~ Harvard Buisness Review
+ 
     st.title("Include.us")
     st.subheader("Quote of the Day")
     st.markdown("<p style='text-align: left; '>'Inclusive companies are 1.7 times more likely to be innovation leaders and inclusive teams make better business decisions twice as fast.'  </p>", unsafe_allow_html=True)
     st.markdown("<p style='text-align: left; '>~ Harvard Buisness Review </p>", unsafe_allow_html=True)
-
-   # st.text("Hey there, you are currently only using the demo version of Include.us. Contact our sales tean to start being inclusive today!")
-   # st.markdown("<p style='text-align: left; '>Hey there, you are currently only using the demo version of Include.us. Contact our sales tean to start being inclusive today!</p>", unsafe_allow_html=True)
-   
 
     st.subheader("Resources")
     st.markdown("<p style='text-align: left; '>It's time to Include.us! Find out more with the resources below or contact us directly.</p>", unsafe_allow_html=True)
@@ -442,14 +438,6 @@ with st.sidebar:
     resultProduct = st.button("Pricing")
     resultMedia = st.button("Social Media")
     resultContact = st.button("Upgrade Now & Go Inclusive!")
-
- 
-#st.subheader('Divergent from Average Inclusion')
-#chart_data = pd.DataFrame(
-#    np.random.randn(3, 3),
-#    columns=["Male", "Female", "Diverse"])
-
-#st.bar_chart(chart_data)
 
 c27,c28,c29,c30, c31 = st.columns([1,3, 1, 6,1])
 with c28:
@@ -460,8 +448,6 @@ with c28:
       "https://i.ibb.co/9HXS29b/Screenshot-2022-10-11-004740.png",
       width=300,
   )
- # st.markdown("<p style='text-align: left; '>Your current inclusion score is 83, up 4% from last week!</p>", unsafe_allow_html=True)
-
 
 with c30:
   
@@ -498,7 +484,7 @@ with colZ:
 
 
 
-  
+  ##layouting with python sucks haha please ignore
 st.text(" ")
 st.text(" ")
 st.text(" ")
