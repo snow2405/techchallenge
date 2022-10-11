@@ -21,11 +21,11 @@ from streamlit_echarts import st_echarts
 ####################
 #VAIRABLES
 
-color1 = "#52307c"
-color2 = "#663a82"
-color3 = "#7c5295"
-color4 = "#b491c8"
-color5 = "#bca0dc"
+color1 = "#32398d"
+color2 = "#2a2666"
+color3 = "#594db9"
+color4 = "#6c61d8"
+color5 = "#8e82e8"
 
 group1 = "Male"
 group2 = "Female"
@@ -42,7 +42,7 @@ st.set_page_config(page_icon="🤝", page_title="include.us")
 
 #st.markdown("<h1 style='text-align: center; size:74; color: red;'>Some title</h1>", unsafe_allow_html=True)
 
-c20,c21,c22,c23 = st.columns([20,2,1,1])
+c20,c21,c22,c23 = st.columns([20,3,1,1])
 
 with c21:
   st.button("Sign Out")
@@ -59,7 +59,7 @@ with c23:
 
 
 st.image(
-    "https://i.ibb.co/q0mGSwk/logo-include.png",
+    "https://i.ibb.co/kHH7yvK/logo-include.png",
     width=200,
 )
 
@@ -98,19 +98,19 @@ baroptions = {
         {
           "value": 22,
           "itemStyle": {
-            "color": '#52307c'
+            "color": color1
           }
         },
         {
           "value": -13,
           "itemStyle": {
-            "color": '#7c5295'
+            "color": color3
           }
         },
         {
           "value": -5,
           "itemStyle": {
-            "color": '#bca0dc'
+            "color": color5
           }
         }
       ],
@@ -123,9 +123,9 @@ baroptions = {
 
 flowinglineoptions={
   "color": [
-    "#52307c",
-    "#7c5295",
-    "#bca0dc"
+   color1,
+   color3,
+   color5
   ],
   "tooltip": {
     "trigger": "axis",
@@ -457,7 +457,7 @@ with c28:
   st.subheader('Inclusion Index')
   st.markdown("<p style='text-align: left; '>Your weekly inclusion index is 83, up 4% from last week!</p>", unsafe_allow_html=True)
   st.image(
-      "https://i.ibb.co/Xjm04v6/Screenshot-2022-10-11-004740.png",
+      "https://i.ibb.co/9HXS29b/Screenshot-2022-10-11-004740.png",
       width=300,
   )
  # st.markdown("<p style='text-align: left; '>Your current inclusion score is 83, up 4% from last week!</p>", unsafe_allow_html=True)

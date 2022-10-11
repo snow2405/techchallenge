@@ -31,7 +31,7 @@ def _max_width_():
 st.set_page_config(page_icon="🤝", page_title="Uploader")
 # st.image("https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/285/balloon_1f388.png", width=100)
 st.image(
-    "https://i.ibb.co/q0mGSwk/logo-include.png",
+    "https://i.ibb.co/kHH7yvK/logo-include.png",
     width=200,
 )
 
