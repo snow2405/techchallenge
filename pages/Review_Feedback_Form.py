@@ -35,7 +35,17 @@ st.image(
     width=200,
 )
 
-st.title("include.us")
+st.title("Create and Review your Feedback Form")
+
+st.image(
+    "https://i.ibb.co/LrcRX5r/Screenshot-2022-10-11-115546.png",
+    width=700,
+)
+st.image(
+    "https://i.ibb.co/QMCXXXk/Screenshot-2022-10-11-115236.png",
+    width=700,
+)
+
 
 # st.caption(
 #     "PRD : TBC | Streamlit Ag-Grid from Pablo Fonseca: https://pypi.org/project/streamlit-aggrid/"
@@ -62,11 +72,6 @@ st.title("include.us")
 #     st.text("")
 
 
-st.info(
-            f"""
-                This page is currently getting built. Find out more [here](https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley)
-                """
-        )
 
 
 st.text("")
